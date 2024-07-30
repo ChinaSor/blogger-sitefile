@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   blockquotes.forEach (function(blockquote) {
       // 创建一个新的code元素，并将blockquote的内容复制进去
       var code = document.createElement ('code');    
-      code.innerHTML  = blockquote.innerHTML.replace(/<br\s*\/?>/gi, '\n');
+      code.innerHTML  = blockquote.innerHTML;
     
       // 添加 class 属性
       code.setAttribute ('class', 'prettyprint');
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // 创建一个新的pre元素，并将code元素添加为其子元素
       var pre = document.createElement ('pre');
       pre.appendChild(code);
+      pre.setAttribute ('class', 'prettyprint');
     
       // 替换原来的blockquote元素为pre元素
       blockquote.parentNode.replaceChild (pre, blockquote);
